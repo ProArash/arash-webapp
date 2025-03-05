@@ -45,7 +45,7 @@ const IndexPage = () => {
 			level: 70,
 		},
 		{
-			title: 'TypeScripte',
+			title: 'TypeScript',
 			icon: <TbBrandTypescript size={30} />,
 			level: 75,
 		},
