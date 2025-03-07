@@ -15,6 +15,7 @@ h3 {
 }
 
 :root {
+	-webkit-appearance: none;
 	--background: 142 0% 95%;
 	--foreground: 142 0% 0%;
 	--card: 142 0% 90%;

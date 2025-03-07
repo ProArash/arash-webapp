@@ -12,6 +12,9 @@ import {
 } from 'react-icons/tb';
 import { FaLinux } from 'react-icons/fa';
 import { SiMongodb, SiPostgresql, SiTypeorm } from 'react-icons/si';
+import EducationContainer from '../components/Eduacation/EducationContainer';
+import { careerInfo, eduInfo } from '../data/MyData';
+import ContactContainer from '../components/Contact/ContactContainer';
 
 const IndexPage = () => {
 	const langs: ISkillProps[] = [
@@ -77,7 +80,7 @@ const IndexPage = () => {
 	];
 
 	return (
-		<div className="flex flex-col md:gap-10 gap-5 w-full">
+		<div className="flex flex-col gap-5 w-full">
 			<MeContainer />
 			<CustomSeparator title="Dienste" num={1} />
 			<ServicesContainer />
@@ -86,7 +89,11 @@ const IndexPage = () => {
 			<CustomSeparator title="Fähigkeiten" num={3} />
 			<SkillContainer skills={skills} />
 			<CustomSeparator title="Studium" num={4} />
-			<CustomSeparator title="Berufsschule" num={5} />
+			<EducationContainer infoList={eduInfo} />
+			<CustomSeparator title="Berufserfahrung" num={5} />
+			<EducationContainer infoList={careerInfo} />
+			<CustomSeparator title="Kontakt" num={6} />
+			<ContactContainer />
 		</div>
 	);
 };

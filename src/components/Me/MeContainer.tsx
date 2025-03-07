@@ -1,5 +1,5 @@
 import ProfileImage from './ProfileImage';
-import myImg from '@/assets/MeContainer/me.jpg';
+import myImg from '@/assets/MeContainer/me.jpeg';
 
 const MeContainer = () => {
 	return (
