@@ -1,7 +1,6 @@
-import Link from 'next/link';
-import { AppRoutes } from '../../utils/AppRoutes';
-import { Button } from '../ui/button';
+'use client';
 import { FaArrowRight } from 'react-icons/fa';
+import { Box, Button } from '@mui/material';
 
 export interface IServiceCard {
 	title: string;
@@ -11,7 +10,7 @@ export interface IServiceCard {
 
 const ServiceCard = ({ title, num, caption }: IServiceCard) => {
 	return (
-		<div className="flex flex-col rounded-md bg-card text-card-foreground md:p-5 p-3 gap-5 md:h-[300px] h-full w-full">
+		<Box className="flex flex-col rounded-md md:p-5 p-3 gap-5 md:h-[300px] h-full">
 			<div className="flex gap-2">
 				<span className="font-bold text-primary">
 					{num < 10 ? `0${num}` : num}.
@@ -19,16 +18,17 @@ const ServiceCard = ({ title, num, caption }: IServiceCard) => {
 				<span className="font-bold">{title}</span>
 			</div>
 			<p className="md:text-justify">{caption}</p>
-			<div className='grow' />
-			<Link
-				className="md:w-fit w-full hover:scale-105 transition"
-				href={AppRoutes.contact}>
-				<Button className="cursor-pointer w-full">
-					Dienst bestellen
-					<FaArrowRight />
-				</Button>
-			</Link>
-		</div>
+			<div className="grow" />
+			<Button
+				sx={{
+					width: 'fit-content',
+				}}
+				variant="contained"
+				color="primary"
+				endIcon={<FaArrowRight />}>
+				Dienst bestellen
+			</Button>
+		</Box>
 	);
 };
 

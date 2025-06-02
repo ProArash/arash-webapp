@@ -1,3 +1,4 @@
+import { IconButton } from '@mui/material';
 import Link from 'next/link';
 import { ReactNode } from 'react';
 
@@ -11,12 +12,16 @@ type Props = {
 const SidebarItem = ({ icon, url, selected = false, onClick }: Props) => {
 	return (
 		<Link
-			className={`w-full items-center flex justify-center transition ${
-				selected && 'text-primary scale-110'
-			}`}
+			className={`w-full items-center flex justify-center transition`}
 			onClick={onClick}
 			href={url}>
-			<i className="text-[20px]">{icon}</i>
+			<IconButton
+				color={(selected && 'primary') || 'default'}
+				sx={{
+					fontSize: '20px',
+				}}>
+				{icon}
+			</IconButton>
 		</Link>
 	);
 };

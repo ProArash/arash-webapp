@@ -1,13 +1,14 @@
-import Link from 'next/link';
+'use client';
+import { IconButton } from '@mui/material';
+import { useRouter } from 'next/navigation';
 import { FaCode } from 'react-icons/fa';
 
 const LogoItem = () => {
+	const router = useRouter();
 	return (
-		<Link
-			href={'/'}
-			className="flex p-2 rounded-md bg-primary text-primary-foreground w-[70px] h-[70px] justify-center items-center">
+		<IconButton color="secondary" onClick={() => router.push('/')}>
 			<FaCode size={25} />
-		</Link>
+		</IconButton>
 	);
 };
 

@@ -1,8 +1,8 @@
 import MeContainer from '../components/Me/MeContainer';
 import ServicesContainer from '../components/Services/ServicesContainer';
 import CustomSeparator from '../components/CustomSeparator';
-import SkillContainer from '../components/Languages/SkillContainer';
-import { ISkillProps } from '../components/Languages/SkillCard';
+import SkillContainer from '../components/Skills/SkillContainer';
+import { ISkillProps } from '../components/Skills/SkillCard';
 import { AM, DE, US } from 'country-flag-icons/react/1x1';
 import {
 	TbBrandDocker,
@@ -15,6 +15,7 @@ import { SiMongodb, SiPostgresql, SiTypeorm } from 'react-icons/si';
 import EducationContainer from '../components/Eduacation/EducationContainer';
 import { careerInfo, eduInfo } from '../data/MyData';
 import ContactContainer from '../components/Contact/ContactContainer';
+import { Box } from '@mui/material';
 
 const IndexPage = () => {
 	const langs: ISkillProps[] = [
@@ -80,7 +81,14 @@ const IndexPage = () => {
 	];
 
 	return (
-		<div className="flex flex-col gap-5 w-full">
+		<Box
+			sx={{
+				display: 'flex',
+				flexDirection: 'column',
+				gap: '10px',
+				width: '100%',
+				boxShadow: '20px',
+			}}>
 			<MeContainer />
 			<CustomSeparator title="Dienste" num={1} />
 			<ServicesContainer />
@@ -94,7 +102,7 @@ const IndexPage = () => {
 			<EducationContainer infoList={careerInfo} />
 			<CustomSeparator title="Kontakt" num={6} />
 			<ContactContainer />
-		</div>
+		</Box>
 	);
 };
 

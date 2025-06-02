@@ -3,6 +3,8 @@ import { FaCode, FaHome, FaInfo, FaList, FaMobile } from 'react-icons/fa';
 import LogoItem from './LogoItem';
 import SidebarItem from './SidebarItem';
 import { useState } from 'react';
+import { Box, Paper } from '@mui/material';
+import ThemeSwitch from '../ThemeSwitch';
 
 const SidebarContainer = () => {
 	const [selected, setSelected] = useState<string | undefined>(undefined);
@@ -10,9 +12,22 @@ const SidebarContainer = () => {
 		setSelected(url);
 	};
 	return (
-		<div className="flex flex-col gap-2 w-[70px] items-center h-full">
+		<Box
+			sx={{
+				display: 'flex',
+				flexDirection: 'column',
+				gap: '10px',
+				width: '70px',
+				alignItems: 'center',
+				height: '100%',
+			}}>
 			<LogoItem />
-			<div className="flex flex-col p-5 gap-5 bg-secondary rounded-md w-full items-center h-full border border-border">
+			<Box
+				component={Paper}
+				sx={{
+					borderRadius: '20px',
+				}}
+				className="flex flex-col p-5 gap-5 rounded-md w-full items-center h-full">
 				<SidebarItem
 					onClick={() => handleSelectedItem('#1')}
 					selected={selected == '#1' ? true : false}
@@ -43,8 +58,10 @@ const SidebarContainer = () => {
 					icon={<FaMobile />}
 					url="#"
 				/>
-			</div>
-		</div>
+				<div className="grow" />
+				<ThemeSwitch />
+			</Box>
+		</Box>
 	);
 };
 
