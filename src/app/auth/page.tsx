@@ -1,33 +1,32 @@
 'use client';
 import { Box, Button, Paper, TextField, Typography } from '@mui/material';
-import {
-	BsArrowRightCircleFill,
-	BsKey,
-	BsPerson,
-	BsTelephone,
-} from 'react-icons/bs';
+import { BsArrowRightCircleFill, BsKey, BsTelephone } from 'react-icons/bs';
 import CustomAdornment from '../../components/CustomAdornment';
 import { useForm } from 'react-hook-form';
 import { IAuthRequest } from '../../api/auth/auth.dto';
-import { useCurrentProfile, useSignIn } from '../../api/auth/auth.mutation';
-import { showSnackbar } from '../../components/Providers/SnackbarProvider';
+import { useSignIn } from '../../api/auth/auth.mutation';
 import ErrorContainer from '../../components/ErrorContainer';
+import LogoContainer from '../../components/Appbar/LogoContainer';
+import Image from 'next/image';
+import img1 from '@/assets/auth/1.jpg';
 
 const SignInPage = () => {
 	const { handleSubmit, register } = useForm<IAuthRequest>();
 	const signIn = useSignIn();
-	const currentUser = useCurrentProfile();
 	const handleFormSumbit = async (data: IAuthRequest) => {
 		signIn.mutate(data);
 	};
 	return (
-		<div className="flex h-screen w-full p-5">
+		<div className="flex justify-between h-screen w-full -mt-36">
 			<Box
 				component={Paper}
 				sx={{
-					borderRadius: '16px',
+					borderRadius: '0 24px 24px 0',
 				}}
-				className="flex flex-col gap-10 md:w-1/3 w-full p-5">
+				className="flex flex-col md:gap-10 gap-5 md:w-1/2 w-full md:p-10 p-5">
+				<div className="flex w-full justify-center">
+					<LogoContainer />
+				</div>
 				<Typography variant="h5">ورود به حساب کاربری</Typography>
 
 				<form
@@ -51,7 +50,7 @@ const SignInPage = () => {
 					/>
 					<TextField
 						label={'رمز عبور'}
-						placeholder="!@Aa123456789"
+						placeholder="a123456789"
 						error={signIn.isError}
 						type="password"
 						{...register('password')}
@@ -70,25 +69,20 @@ const SignInPage = () => {
 						type="submit"
 						loading={signIn.isPending}
 						startIcon={<BsArrowRightCircleFill />}>
-						<Typography>ورود/ثبت نام</Typography>
+						<Typography>{'ورود / ثبت نام'}</Typography>
 					</Button>
 				</form>
-				<Button
-					variant="contained"
-					type="button"
-					onClick={async () => {
-						await currentUser.mutateAsync(undefined, {
-							onSuccess: (res) => {
-								if (res.data)
-									showSnackbar(res.data.username, 'info');
-							},
-						});
-					}}
-					startIcon={<BsPerson />}>
-					<Typography>{'profile'}</Typography>
-				</Button>
 				{signIn.isError && <ErrorContainer error={signIn.error} />}
 			</Box>
+			<div className="w-full h-full p-10 md:flex hidden items-center justify-center">
+				<Image
+					src={img1}
+					alt="auth image"
+					width={0}
+					height={0}
+					className="object-contain rounded-xl h-full w-fit"
+				/>
+			</div>
 		</div>
 	);
 };

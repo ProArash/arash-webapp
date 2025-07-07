@@ -5,39 +5,25 @@ import { green, red, amber, lightBlue, grey } from '@mui/material/colors';
 
 const vazirFont = localFont({
 	src: '../../assets/font/vazir/Vazir-Regular-FD.woff2',
-	display: 'swap',
+	display: 'auto',
 });
 
-const primaryColor = '#003566';
-const secondaryColor = '#ffd000';
+// main colors
+const primaryColor = '#003262';
+const secondaryColor = '#FFBF00';
+
+// dark colors
+const darkTextPrimary = '#F5F5F5';
+const darkBackgroundColor = '#111111';
+const darkPaperColor = '#000000';
+
+// light colors
+const textPrimary = '#111111';
+const backgroundColor = '#F5F5F5';
+const paperColor = '#FEFEFA';
 
 export const customTheme = createTheme({
 	direction: 'rtl',
-	typography: {
-		allVariants: {
-			fontFamily: vazirFont.style.fontFamily,
-		},
-		h1: {
-			fontSize: '10px',
-		},
-		h2: {
-			fontSize: '35px',
-		},
-		h3: {
-			fontSize: '30px',
-		},
-		h4: {
-			fontSize: '25px',
-			fontWeight: 'bolder',
-		},
-		h5: {
-			fontSize: '20px',
-			fontWeight: 'bolder',
-		},
-		h6: {
-			fontSize: '15px',
-		},
-	},
 	colorSchemes: {
 		dark: {
 			palette: {
@@ -63,13 +49,13 @@ export const customTheme = createTheme({
 					'500': grey['500'],
 				},
 				background: {
-					default: '#171717',
-					paper: '#020202',
+					default: darkBackgroundColor,
+					paper: darkPaperColor,
 				},
 				text: {
-					primary: grey['500'],
-					secondary: grey['400'],
+					primary: darkTextPrimary,
 				},
+				divider: grey['700'],
 			},
 		},
 		light: {
@@ -96,21 +82,60 @@ export const customTheme = createTheme({
 					'500': grey['500'],
 				},
 				background: {
-					default: grey['50'],
+					default: backgroundColor,
+					paper: paperColor,
 				},
 				text: {
-					primary: primaryColor,
-					secondary: grey['700'],
+					primary: textPrimary,
 				},
+				divider: grey['700'],
 			},
+		},
+	},
+	typography: {
+		allVariants: {
+			fontFamily: vazirFont.style.fontFamily,
+			textAlign: 'justify',
+		},
+		h1: {
+			fontSize: '10px',
+		},
+		h2: {
+			fontSize: '35px',
+		},
+		h3: {
+			fontSize: '30px',
+		},
+		h4: {
+			fontSize: '25px',
+			fontWeight: 'bolder',
+		},
+		h5: {
+			fontSize: '20px',
+			fontWeight: 'bolder',
+		},
+		h6: {
+			fontSize: '15px',
 		},
 	},
 	components: {
 		MuiButton: {
 			styleOverrides: {
 				root: {
-					borderRadius: '16px',
+					borderRadius: '24px',
 					textTransform: 'none',
+					height: '32px',
+					padding: '20px',
+					md: {
+						height: '48px',
+					},
+				},
+			},
+		},
+		MuiPaper: {
+			styleOverrides: {
+				root: {
+					borderRadius: '24px',
 				},
 			},
 		},

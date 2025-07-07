@@ -4,6 +4,7 @@ import {
 	Button,
 	Drawer,
 	IconButton,
+	Paper,
 	Toolbar,
 	Typography,
 	useMediaQuery,
@@ -15,37 +16,49 @@ import LogoContainer from './LogoContainer';
 import { ListRounded, ShoppingCartCheckoutRounded } from '@mui/icons-material';
 import InquiryFormContainer from '../Home/InquiryFormContainer';
 import { usePathname } from 'next/navigation';
+import ThemeSwitcher from '../Theme/ThemeSwitcher';
 
 const MainAppbar = () => {
 	const path = usePathname();
 	const [open, setOpen] = useState<boolean>(false);
 	const [openForm, setOpenForm] = useState<boolean>(false);
 	const isMobile = useMediaQuery(customTheme.breakpoints.down('md'));
+
 	if (path == '/auth/' || path == '/auth') return null;
 	return (
 		<Box
-			color="primary"
-			sx={{
-				width: `calc(100% - ${isMobile ? '1px' : '20px'})`,
-				margin: isMobile ? '0' : '10px',
-				borderRadius: isMobile ? '0 0 16px 16px' : '16px',
-				top: isMobile ? '0' : '10px',
+			component={Paper}
+			sx={(theme) => ({
+				backgroundColor: theme.palette.background.default,
+				width: `100%`,
+				margin: 0,
+				borderRadius: '0 0 16px 16px',
 				position: 'fixed',
+				top: 0,
 				zIndex: 50,
-				backdropFilter: 'blur(30px)',
-				boxShadow: `0px 0px 10px rgba(0, 0, 0, .5)`,
-			}}>
+			})}>
 			<InquiryFormContainer
 				open={openForm}
 				setClose={() => setOpenForm(false)}
 			/>
-			<Drawer anchor="left" open={open} onClose={() => setOpen(false)}>
+			<Drawer
+				anchor="left"
+				open={open}
+				onClose={() => setOpen(false)}
+				sx={{
+					'& .MuiPaper-root': {
+						borderRadius: '0 16px 16px 0',
+						minWidth: '55%',
+					},
+				}}>
 				<AppbarItems />
 			</Drawer>
 			<Toolbar className="flex justify-between md:p-5 p-1">
 				{isMobile && (
 					<>
-						<IconButton onClick={() => setOpen(true)}>
+						<IconButton
+							onClick={() => setOpen(true)}
+							color="primary">
 							<ListRounded />
 						</IconButton>
 					</>
@@ -57,14 +70,13 @@ const MainAppbar = () => {
 					</>
 				)}
 				<div className="flex gap-5">
+					<ThemeSwitcher />
 					<Button
 						variant="contained"
 						color="primary"
 						startIcon={<ShoppingCartCheckoutRounded />}
 						onClick={() => setOpenForm(true)}>
-						<Typography variant="caption">
-							{'سفارش پروژه'}
-						</Typography>
+						<Typography variant="caption">{'ثبت سفارش'}</Typography>
 					</Button>
 				</div>
 			</Toolbar>

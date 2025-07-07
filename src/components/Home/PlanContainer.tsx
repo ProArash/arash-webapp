@@ -1,81 +1,36 @@
 import React from 'react';
 import SectionTitle from './SectionTitle';
-import PlanItem, { PlanItemProps } from './PlanItem';
+import PlanCard, { PlanItemProps } from './PlanCard';
 
 const PlanContainer = () => {
 	const plans: PlanItemProps[] = [
 		{
-			title: 'پلن برنزی',
-			period: 'هاست یکساله',
-			price: 5000000,
-			features: [
-				{
-					title: 'هاست مخصوص NodeJS',
-				},
-				{
-					title: 'راه اندازی رایگان',
-				},
-				{
-					title: 'پشتیبانی 1 ماهه',
-				},
-				{
-					title: 'SSL رایگان',
-				},
-				{
-					title: 'پهنای باند نامحدود',
-				},
-				{
-					title: 'تحویل فوری',
-				},
+			id: 0,
+			title: 'وب اپلیکیشن پایه',
+			context: [
+				'پایان نامه دانشجویی',
+				'پروژه های دانشجویی',
+				'تک صفحه ای',
+				'رزومه',
 			],
-		},
-		{
-			title: 'پلن نقره ای',
-			period: 'هاست یکساله',
-			price: 10000000,
+			price: 4900000,
+			discountPrice: 1900000,
+			status: true,
 			features: [
 				{
-					title: 'هاست مخصوص NodeJS',
+					title: 'داشبورد حرفه ای ادمین',
 				},
 				{
-					title: 'راه اندازی رایگان',
+					title: 'پشتیبانی فنی 3 ماهه',
 				},
 				{
-					title: 'پشتیبانی 3 ماهه',
+					title: 'احراز هویت با کد یکبار مصرف',
 				},
 				{
-					title: 'SSL رایگان',
+					title: 'رابط کاربری حرفه ای و کاربر پسند',
 				},
 				{
-					title: 'پهنای باند نامحدود',
-				},
-				{
-					title: 'تحویل فوری',
-				},
-			],
-		},
-		{
-			title: 'پلن طلایی',
-			period: 'هاست یکساله',
-			price: 15000000,
-			features: [
-				{
-					title: 'هاست مخصوص NodeJS',
-				},
-				{
-					title: 'راه اندازی رایگان',
-				},
-				{
-					title: 'پشتیبانی 6 ماهه',
-				},
-				{
-					title: 'SSL رایگان',
-				},
-				{
-					title: 'پهنای باند نامحدود',
-				},
-				{
-					title: 'تحویل فوری',
+					title: 'ریسپانسیو و حالت PWA',
 				},
 				{
 					title: 'به همراه سورس کد',
@@ -83,47 +38,135 @@ const PlanContainer = () => {
 			],
 		},
 		{
-			title: 'پلن الماس',
-			period: 'هاست یکساله',
-			price: 20000000,
+			id: 1,
+			title: 'وب اپلیکیشن شرکتی',
+			context: ['پزشکان', 'وکلا', 'دفتر ترجمه'],
+			price: 19900000,
+			discountPrice: 16900000,
+			status: true,
 			features: [
 				{
-					title: 'هاست مخصوص NodeJS',
+					title: 'داشبورد حرفه ای ادمین',
 				},
 				{
-					title: 'راه اندازی رایگان',
+					title: 'سئوی بهینه و حرفه ای با NextJS',
 				},
 				{
-					title: 'پشتیبانی 6 ماهه',
+					title: 'پشتیبانی فنی یکساله',
 				},
 				{
-					title: 'SSL رایگان',
+					title: 'امکان اتصال به پنل پیامکی',
 				},
 				{
-					title: 'پهنای باند نامحدود',
+					title: 'رابط کاربری حرفه ای و کاربر پسند',
 				},
 				{
-					title: 'تحویل فوری',
+					title: 'ریسپانسیو و حالت PWA',
 				},
 				{
-					title: 'به همراه سورس کد',
+					title: 'ثبت در گوگل سرچ انجین',
 				},
 				{
-					title: 'فیچر یا ماژول اضافه',
+					title: 'فرم ارتباط با مشتری و ثبت درخواست',
+				},
+			],
+		},
+		{
+			id: 2,
+			title: 'وب اپلیکیشن فروش آنلاین',
+			context: ['کسب و کارهای خانگی', 'فروش آنلاین محصول', 'خدمات مجازی'],
+			price: 24900000,
+			discountPrice: 21900000,
+			status: true,
+			features: [
+				{
+					title: 'داشبورد حرفه ای ادمین',
+				},
+				{
+					title: 'پشتیبانی فنی 6 ماهه',
+				},
+				{
+					title: 'امکان اتصال به انواع درگاه پرداخت',
+				},
+				{
+					title: 'مدیریت موجودی اجناس',
+				},
+				{
+					title: 'احراز هویت با کد یکبار مصرف',
+				},
+				{
+					title: 'رابط کاربری حرفه ای و کاربر پسند',
+				},
+				{
+					title: 'ریسپانسیو و حالت PWA',
+				},
+			],
+		},
+		{
+			id: 3,
+			title: 'وب اپلیکیشن اختصاصی',
+			context: [
+				'فروشگاه اینترنتی',
+				'نوبت دهی مطب پزشک',
+				'نوبت دهی درمانگاه',
+				'کسب و کارهای آنلاین',
+			],
+			price: 149900000,
+			discountPrice: 144900000,
+			status: true,
+			features: [
+				{
+					title: 'داشبورد حرفه ای ادمین',
+				},
+				{
+					title: 'امکان اتصال به انواع درگاه پرداخت',
+				},
+				{
+					title: 'سیستم نظردهی مشتریان',
+				},
+				{
+					title: '',
+				},
+				{
+					title: '',
+				},
+				{
+					title: '',
+				},
+				{
+					title: 'سئوی بهینه و حرفه ای با NextJS',
+				},
+				{
+					title: 'پشتیبانی فنی 1 ساله',
+				},
+				{
+					title: 'امکان اتصال به پنل پیامکی',
+				},
+				{
+					title: 'رابط کاربری حرفه ای و کاربر پسند',
+				},
+				{
+					title: 'ریسپانسیو و حالت PWA',
+				},
+				{
+					title: 'ثبت در گوگل سرچ انجین',
 				},
 			],
 		},
 	];
 	return (
-		<div id='plans' className="flex flex-col gap-5">
+		<div id="plans" className="flex flex-col gap-10">
 			<SectionTitle title={'پلن های طراحی'} />
 			<div className="grid md:grid-cols-3 grid-cols-1 justify-items-center w-full gap-5">
 				{plans.map((v, i) => (
-					<PlanItem
+					<PlanCard
+						id={v.id}
 						title={v.title}
 						features={v.features}
-						period={v.period}
+						context={v.context}
 						price={v.price}
+						status={v.status}
+						discountPrice={v.discountPrice}
 						key={i}
 					/>
 				))}

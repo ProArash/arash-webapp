@@ -15,12 +15,11 @@ const HeaderContainer = () => {
 						'لورم ایپسوم متن ساختگی با تولید سادگی نامفهوم از صنعت چاپ و با استفاده از طراحان گرافیک است. چاپگرها و متون بلکه روزنامه و مجله در ستون و سطرآنچنان که لازم است.چاپگرها و متون بلکه روزنامه و مجله در ستون و سطرآنچنان که لازم است.'
 					}
 				</Typography>
-				<div className="flex md:flex-row flex-col md:gap-5 gap-2">
+				<div className="flex md:flex-row flex-col md:gap-10 gap-5">
 					<Button
-						variant="contained"
 						fullWidth
-						startIcon={<BsPersonBadgeFill />}
-						sx={{ height: '48px' }}>
+						variant="contained"
+						startIcon={<BsPersonBadgeFill />}>
 						درباره من
 					</Button>
 					<Button
@@ -29,8 +28,7 @@ const HeaderContainer = () => {
 						variant="contained"
 						color="secondary"
 						fullWidth
-						startIcon={<BsCashCoin />}
-						sx={{ height: '48px' }}>
+						startIcon={<BsCashCoin />}>
 						{'تعرفه ها'}
 					</Button>
 				</div>

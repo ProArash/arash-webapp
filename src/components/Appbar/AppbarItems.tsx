@@ -8,7 +8,6 @@ import LogoContainer from './LogoContainer';
 import {
 	HomeRounded,
 	ListAltRounded,
-	PersonRounded,
 	PhoneRounded,
 	ViewListRounded,
 } from '@mui/icons-material';
@@ -24,31 +23,36 @@ const AppbarItems = () => {
 						<Divider />
 					</div>
 				)}
+
 				<AppbarItem
 					title="خانه"
 					url={AppRoutes.home}
 					icon={<HomeRounded />}
 				/>
+
 				<AppbarItem
 					title="پروژه ها"
 					url={AppRoutes.home}
 					icon={<ViewListRounded />}
 				/>
+
 				<AppbarItem
 					title="روزمه من"
 					url={AppRoutes.home}
 					icon={<ListAltRounded />}
 				/>
+
 				<AppbarItem
 					title="پشتیبانی"
 					url={AppRoutes.home}
 					icon={<PhoneRounded />}
 				/>
-				<AppbarItem
+
+				{/* <AppbarItem
 					title="پروفایل"
 					url={AppRoutes.auth}
 					icon={<PersonRounded />}
-				/>
+				/> */}
 			</div>
 			<div className="md:hidden grow" />
 		</>

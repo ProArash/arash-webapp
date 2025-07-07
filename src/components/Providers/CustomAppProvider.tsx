@@ -30,7 +30,7 @@ const CustomAppProvider = ({ children }: { children: ReactNode }) => {
 		<AppRouterCacheProvider>
 			<QueryClientProvider client={query}>
 				<CacheProvider value={rtlCache}>
-					<ThemeProvider theme={customTheme}>
+					<ThemeProvider theme={customTheme} defaultMode="dark">
 						<CssBaseline />
 						<SnackbarProvider>{children}</SnackbarProvider>
 					</ThemeProvider>

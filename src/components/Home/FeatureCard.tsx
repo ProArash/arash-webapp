@@ -1,18 +1,8 @@
 'use client';
-import { Box, Paper, Typography, useMediaQuery } from '@mui/material';
+import { Box, Paper, Typography } from '@mui/material';
 import { ReactNode } from 'react';
-import { customTheme } from '../Theme/theme';
 
-const FeatureCard = ({
-	title,
-	caption,
-	icon,
-}: {
-	title: string;
-	caption: string;
-	icon: ReactNode;
-}) => {
-	const isMobile = useMediaQuery(customTheme.breakpoints.down('md'));
+const FeatureCard = ({ title, icon }: { title: string; icon: ReactNode }) => {
 	return (
 		<Box
 			component={Paper}
@@ -21,18 +11,19 @@ const FeatureCard = ({
 				display: 'flex',
 				gap: '20px',
 				flexDirection: 'column',
-				width: isMobile ? '100%' : '300px',
-				height: '300px',
+				justifyContent: 'center',
+				alignItems: 'center',
+				width: '100px',
+				height: '100px',
 				padding: '15px',
 				borderRadius: '12px',
 				cursor: 'pointer',
 				':hover': {
-					scale: 0.9,
+					scale: 0.95,
 				},
 			}}>
 			{icon}
-			<Typography variant="h4">{title}</Typography>
-			<Typography variant="caption">{caption}</Typography>
+			<Typography variant="caption">{title}</Typography>
 		</Box>
 	);
 };

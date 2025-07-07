@@ -1,11 +1,20 @@
-'use client'
+'use client';
 import { Box, IconButton, Paper, Typography } from '@mui/material';
 import React from 'react';
 import MainTitle from './MainTitle';
-import { Instagram, Telegram, X } from '@mui/icons-material';
+import {
+	Instagram,
+	LinkRounded,
+	Telegram,
+	VerifiedUser,
+	X,
+} from '@mui/icons-material';
 import Link from 'next/link';
+import { usePathname } from 'next/navigation';
 
 const FooterContainer = () => {
+	const path = usePathname();
+		if (path == '/auth/' || path == '/auth') return null;
 	return (
 		<Box
 			component={Paper}
@@ -33,24 +42,53 @@ const FooterContainer = () => {
 				</div>
 			</div>
 			<div className="flex flex-col gap-5">
-				<Typography variant="body1" color="info">
+				<Typography
+					variant="body1"
+					color="info"
+					className="flex gap-3 items-center">
+					<LinkRounded />
 					{'دسترسی سریع'}
 				</Typography>
-				<Link href={'#'}>
-					<Typography variant="body2" color="textSecondary">
-						{'ثبت سفارش'}
-					</Typography>
-				</Link>
-				<Link href={'#'}>
-					<Typography variant="body2" color="textSecondary">
-						{'ارتباط با من'}
-					</Typography>
-				</Link>
-				<Link href={'#'}>
-					<Typography variant="body2" color="textSecondary">
-						{'پروژه ها'}
-					</Typography>
-				</Link>
+
+				<Typography
+					href={'#'}
+					component={Link}
+					variant="body2"
+					color="textSecondary">
+					{'ثبت سفارش'}
+				</Typography>
+
+				<Typography
+					href={'#'}
+					component={Link}
+					variant="body2"
+					color="textSecondary">
+					{'ارتباط با من'}
+				</Typography>
+
+				<Typography
+					href={'#'}
+					component={Link}
+					variant="body2"
+					color="textSecondary">
+					{'پروژه ها'}
+				</Typography>
+			</div>
+			<div className="flex flex-col gap-5">
+				<Typography
+					variant="body1"
+					color="info"
+					className="flex gap-3 items-center">
+					<VerifiedUser />
+					{'مجوزها'}
+				</Typography>
+				<Typography
+					href={'#'}
+					variant="body2"
+					color="textSecondary"
+					component={Link}>
+					{'نماد الکترونیک'}
+				</Typography>
 			</div>
 		</Box>
 	);

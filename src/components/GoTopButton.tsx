@@ -10,9 +10,10 @@ const GoTopButton = () => {
 		window.scrollTo({ top: 0, behavior: 'smooth' });
 	};
 	return (
-		<div>
+		<div className='z-10'>
 			<IconButton
 				onClick={handleScroll}
+				color="primary"
 				sx={{
 					display: 'flex',
 					justifyItems: 'center',
