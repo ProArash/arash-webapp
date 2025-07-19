@@ -1,15 +1,18 @@
-'use client';
-import { ArrowCircleLeft } from '@mui/icons-material';
-import { Typography, useMediaQuery } from '@mui/material';
-import React from 'react';
-import { customTheme } from '../Theme/theme';
+"use client";
+
+import { Icon, Typography, useMediaQuery } from "@mui/material";
+import React from "react";
+import { customTheme } from "../Theme/theme";
+import { BsArrowLeftCircle } from "react-icons/bs";
 
 const SectionTitle = ({ title }: { title: string }) => {
-	const isMobile = useMediaQuery(customTheme.breakpoints.down('md'));
+	const isMobile = useMediaQuery(customTheme.breakpoints.down("md"));
 	return (
 		<div className="flex gap-2 items-center w-full">
-			<ArrowCircleLeft color="secondary" fontSize="medium" />
-			<Typography variant={isMobile ? 'h5' : 'h4'} color="textPrimary">
+			<Icon color="secondary">
+				<BsArrowLeftCircle />
+			</Icon>
+			<Typography variant={isMobile ? "h5" : "h4"} color="textPrimary">
 				{title}
 			</Typography>
 		</div>

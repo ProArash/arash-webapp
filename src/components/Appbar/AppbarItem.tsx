@@ -1,6 +1,6 @@
-import { MenuItem } from '@mui/material';
-import Link from 'next/link';
-import { ReactNode } from 'react';
+import { Icon, MenuItem } from "@mui/material";
+import Link from "next/link";
+import { ReactNode } from "react";
 
 const AppbarItem = ({
 	title,
@@ -12,12 +12,15 @@ const AppbarItem = ({
 	icon: ReactNode;
 }) => {
 	return (
-		<MenuItem sx={{ borderRadius: '8px' }}>
-			<Link href={url} className="flex gap-2 items-center">
-				{icon}
+		<Link href={url}>
+			<MenuItem
+				className="flex gap-2 items-center"
+				sx={{ borderRadius: "8px" }}
+			>
+				<Icon>{icon}</Icon>
 				{title}
-			</Link>
-		</MenuItem>
+			</MenuItem>
+		</Link>
 	);
 };
 

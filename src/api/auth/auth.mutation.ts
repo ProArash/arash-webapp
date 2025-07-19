@@ -1,8 +1,9 @@
-import { UseMutationResult } from '@tanstack/react-query';
-import { IBasicResponse, IErrorResponse } from '../axios.client';
-import { useCustomMutation } from '../custom.mutation';
-import { IAuthRequest, IProfileResponse } from './auth.dto';
-import { AuthService } from './auth.service';
+import { UseMutationResult } from "@tanstack/react-query";
+import { IErrorResponse } from "../axios.client";
+import { useCustomMutation } from "../custom.mutation";
+import { IAuthRequest, IProfileResponse } from "./auth.dto";
+import { AuthService } from "./auth.service";
+import { IBasicResponse } from "../basic.response";
 
 const authService = new AuthService();
 
@@ -11,19 +12,17 @@ export const useSignIn = (): UseMutationResult<
 	IErrorResponse,
 	IAuthRequest
 > => {
-	return useCustomMutation<undefined, IAuthRequest>(
-		async (data?: IAuthRequest) => await authService.signIn(data!)
+	return useCustomMutation(
+		async (data?: IAuthRequest) => await authService.signIn(data!),
 	);
 };
 
-export const useUserRegister = (): UseMutationResult<
+export const useLogOut = (): UseMutationResult<
 	IBasicResponse<undefined>,
 	IErrorResponse,
-	IAuthRequest
+	undefined
 > => {
-	return useCustomMutation<undefined, IAuthRequest>(
-		async (data?: IAuthRequest) => await authService.register(data!)
-	);
+	return useCustomMutation(async () => await authService.logOut());
 };
 
 export const useCurrentProfile = (): UseMutationResult<
@@ -31,7 +30,5 @@ export const useCurrentProfile = (): UseMutationResult<
 	IErrorResponse,
 	undefined
 > => {
-	return useCustomMutation<IProfileResponse, undefined>(
-		async () => await authService.profile()
-	);
+	return useCustomMutation(async () => await authService.profile());
 };

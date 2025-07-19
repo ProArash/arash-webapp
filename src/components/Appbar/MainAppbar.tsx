@@ -1,65 +1,58 @@
-'use client';
+"use client";
 import {
 	Box,
 	Button,
-	Drawer,
 	IconButton,
 	Paper,
 	Toolbar,
 	Typography,
 	useMediaQuery,
-} from '@mui/material';
-import { useState } from 'react';
-import AppbarItems from './AppbarItems';
-import { customTheme } from '../Theme/theme';
-import LogoContainer from './LogoContainer';
-import { ListRounded, ShoppingCartCheckoutRounded } from '@mui/icons-material';
-import InquiryFormContainer from '../Home/InquiryFormContainer';
-import { usePathname } from 'next/navigation';
-import ThemeSwitcher from '../Theme/ThemeSwitcher';
+} from "@mui/material";
+import { useEffect, useState } from "react";
+import AppbarItems from "./AppbarItems";
+import { customTheme } from "../Theme/theme";
+import LogoContainer from "./LogoContainer";
+import { useRouter } from "next/navigation";
+import ThemeSwitcher from "../Theme/ThemeSwitcher";
+import { useCurrentProfile } from "../../api/auth/auth.mutation";
+import { AppRoutes } from "../../utils/AppRoutes";
+import CustomDrawer from "./CustomDrawer";
+import { BsArrowRightCircle, BsList, BsPerson } from "react-icons/bs";
 
 const MainAppbar = () => {
-	const path = usePathname();
 	const [open, setOpen] = useState<boolean>(false);
-	const [openForm, setOpenForm] = useState<boolean>(false);
-	const isMobile = useMediaQuery(customTheme.breakpoints.down('md'));
+	const isMobile = useMediaQuery(customTheme.breakpoints.down("md"));
+	const router = useRouter();
+	const {
+		mutate: profileMutate,
+		isPending: profileIsPending,
+		isSuccess: profileIsSuccess,
+	} = useCurrentProfile();
 
-	if (path == '/auth/' || path == '/auth') return null;
+	useEffect(() => {
+		profileMutate(undefined);
+	}, [profileMutate]);
 	return (
 		<Box
 			component={Paper}
 			sx={(theme) => ({
-				backgroundColor: theme.palette.background.default,
+				backgroundColor: theme.palette.background.paper,
 				width: `100%`,
 				margin: 0,
-				borderRadius: '0 0 16px 16px',
-				position: 'fixed',
+				borderRadius: "0 0 16px 16px",
+				position: "sticky",
 				top: 0,
 				zIndex: 50,
-			})}>
-			<InquiryFormContainer
-				open={openForm}
-				setClose={() => setOpenForm(false)}
-			/>
-			<Drawer
-				anchor="left"
-				open={open}
-				onClose={() => setOpen(false)}
-				sx={{
-					'& .MuiPaper-root': {
-						borderRadius: '0 16px 16px 0',
-						minWidth: '55%',
-					},
-				}}>
+			})}
+		>
+			<CustomDrawer open={open} onClose={() => setOpen(false)}>
 				<AppbarItems />
-			</Drawer>
-			<Toolbar className="flex justify-between md:p-5 p-1">
+			</CustomDrawer>
+			<Toolbar className="flex justify-between">
 				{isMobile && (
 					<>
-						<IconButton
-							onClick={() => setOpen(true)}
-							color="primary">
-							<ListRounded />
+						<IconButton onClick={() => setOpen(true)} color="primary">
+							<BsList />
 						</IconButton>
 					</>
 				)}
@@ -74,9 +67,19 @@ const MainAppbar = () => {
 					<Button
 						variant="contained"
 						color="primary"
-						startIcon={<ShoppingCartCheckoutRounded />}
-						onClick={() => setOpenForm(true)}>
-						<Typography variant="caption">{'ثبت سفارش'}</Typography>
+						loading={profileIsPending}
+						onClick={() =>
+							!profileIsSuccess
+								? router.push(AppRoutes.auth)
+								: router.push(AppRoutes.dashboard)
+						}
+						startIcon={profileIsSuccess ? <BsPerson /> : <BsArrowRightCircle />}
+					>
+						{profileIsSuccess ? (
+							<Typography variant="caption">{"پروفایل"}</Typography>
+						) : (
+							<Typography variant="caption">{"ورود / ثبت نام"}</Typography>
+						)}
 					</Button>
 				</div>
 			</Toolbar>

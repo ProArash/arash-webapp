@@ -1,38 +1,36 @@
-import type { Metadata } from 'next';
-import './globals.css';
-import CustomAppProvider from '../components/Providers/CustomAppProvider';
-import 'swiper/css';
-import MainAppbar from '../components/Appbar/MainAppbar';
-import FooterContainer from '../components/Home/FooterContainer';
-import CopyrightContainer from '../components/Home/CopyrightContainer';
+import type { Metadata } from "next";
+import "./globals.css";
+import CustomAppProvider from "../components/Providers/CustomAppProvider";
+import "swiper/css";
+import Script from "next/script";
 
 export const metadata: Metadata = {
-	title: 'کمانگیر | طراحی وب اپلیکیشن',
+	title: "کمانگیر | طراحی وب اپلیکیشن",
 	description:
-		'راهکارهای نوآورانه طراحی و توسعه وب‌ اپلیکیشن‌ های پویا و مقیاس‌ پذیر برای کسب‌ و کارهای آینده‌ نگر. از ایده تا اجرا، کسب‌ و کار شما را در دنیای دیجیتال متحول می‌کنیم',
+		"راهکارهای نوآورانه طراحی و توسعه وب‌ اپلیکیشن‌ های پویا و مقیاس‌ پذیر برای کسب‌ و کارهای آینده‌ نگر. از ایده تا اجرا، کسب‌ و کار شما را در دنیای دیجیتال متحول می‌کنیم",
 	keywords: [
-		'کمانگیر',
-		'طراحی وب اپلیکیشن',
-		'طراحی سایت',
-		'برنامه نویسی',
-		'طراحی سایت با کمانگیر',
+		"کمانگیر",
+		"طراحی وب اپلیکیشن",
+		"طراحی سایت",
+		"برنامه نویسی",
+		"طراحی سایت با کمانگیر",
 	],
 	openGraph: {
-		title: 'کمانگیر - خانه | طراحی وب اپلیکیشن',
+		title: "کمانگیر - طراحی وب اپلیکیشن",
 		description:
-			'راهکارهای نوآورانه طراحی و توسعه وب‌ اپلیکیشن‌ های پویا و مقیاس‌ پذیر برای کسب‌ و کارهای آینده‌ نگر. از ایده تا اجرا، کسب‌ و کار شما را در دنیای دیجیتال متحول می‌کنیم',
-		url: 'https://arash.vip',
-		siteName: 'Your Company Name',
+			"راهکارهای نوآورانه طراحی و توسعه وب‌ اپلیکیشن‌ های پویا و مقیاس‌ پذیر برای کسب‌ و کارهای آینده‌ نگر. از ایده تا اجرا، کسب‌ و کار شما را در دنیای دیجیتال متحول می‌کنیم",
+		url: "https://arash.vip",
+		siteName: "طراحی وب اپلیکیشن با کمانگیر",
 		images: [
 			{
-				url: 'https://arash.vip/images/og-image.jpg',
+				url: "https://arash.vip/logo.svg",
 				width: 1200,
 				height: 630,
-				alt: 'طراحی سایت با کمانگیر',
+				alt: "طراحی سایت با کمانگیر",
 			},
 		],
-		locale: 'fa_IR',
-		type: 'website',
+		locale: "fa_IR",
+		type: "website",
 	},
 	robots: {
 		index: true,
@@ -41,14 +39,14 @@ export const metadata: Metadata = {
 			index: true,
 			follow: true,
 			noimageindex: false,
-			'max-video-preview': -1,
-			'max-snippet': -1,
+			"max-video-preview": -1,
+			"max-snippet": -1,
 		},
 	},
 	verification: {
-		google: 'google',
+		google: "google",
 		other: {
-			me: ['hi@arash.vip', 'https://arash.vip'],
+			me: ["hi@arash.vip", "https://arash.vip"],
 		},
 	},
 };
@@ -61,12 +59,13 @@ export default async function RootLayout({
 	return (
 		<html dir="rtl" lang="fa">
 			<body>
-				<CustomAppProvider>
-					<MainAppbar />
-					<div className="mt-36">{children}</div>
-					<FooterContainer />
-					<CopyrightContainer />
-				</CustomAppProvider>
+				<CustomAppProvider>{children}</CustomAppProvider>
+				<Script
+					defer
+					src="https://static.cloudflareinsights.com/beacon.min.js"
+					data-cf-beacon='{"token": "aa1204fa2672458d8fa38f4c1ba848f5"}'
+					strategy="afterInteractive"
+				/>
 			</body>
 		</html>
 	);

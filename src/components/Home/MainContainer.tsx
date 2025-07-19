@@ -1,7 +1,7 @@
-import { Box, Button,  Paper, Typography } from '@mui/material';
-import SectionTitle from './SectionTitle';
-import Image, { StaticImageData } from 'next/image';
-import { ReactNode } from 'react';
+import { Box, Button, Paper, Typography } from "@mui/material";
+import SectionTitle from "./SectionTitle";
+import Image, { StaticImageData } from "next/image";
+import { ReactNode } from "react";
 
 const MainContainer = ({
 	image,
@@ -22,10 +22,9 @@ const MainContainer = ({
 		<Box
 			component={Paper}
 			className={`flex ${
-				reverse
-					? ' md:flex-row-reverse flex-col'
-					: 'md:flex-row flex-col'
-			} gap-10 justify-between md:p-10 p-5`}>
+				reverse ? " md:flex-row-reverse flex-col" : "md:flex-row flex-col"
+			} gap-10 justify-between md:p-10 p-5`}
+		>
 			<Image
 				src={image}
 				alt={title}
@@ -35,7 +34,11 @@ const MainContainer = ({
 				<SectionTitle title={title} />
 				<Typography variant="body1">{caption}</Typography>
 				{btnTitle && (
-					<Button className='md:w-1/3 w-full' variant="contained" startIcon={btnIcon}>
+					<Button
+						className="md:w-1/3 w-full"
+						variant="contained"
+						startIcon={btnIcon}
+					>
 						{btnTitle}
 					</Button>
 				)}

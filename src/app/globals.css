@@ -1,3 +1,10 @@
-@import 'tailwindcss';
+@import "tailwindcss";
 
 @plugin "tailwindcss-animate";
+
+div {
+	scrollbar-width: none;
+}
+p {
+	scrollbar-width: none;
+}

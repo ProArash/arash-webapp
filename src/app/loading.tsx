@@ -1,9 +1,12 @@
-import { CircularProgress } from '@mui/material';
+import { CircularProgress, Typography } from "@mui/material";
 
 const LoadingPage = () => {
 	return (
 		<div className="flex w-full h-screen items-center justify-center">
-			<CircularProgress variant="indeterminate" />
+			<div className="flex flex-col gap-5 items-center">
+				<CircularProgress variant="indeterminate" />
+				<Typography>{"لطفا منتظر بمانید"}</Typography>
+			</div>
 		</div>
 	);
 };
