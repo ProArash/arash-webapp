@@ -2,8 +2,8 @@ import axios from "axios";
 import { IBasicResponse } from "./basic.response";
 import { AppRoutes } from "../utils/AppRoutes";
 
-const BASE_URL = "http://localhost:4000";
-// const BASE_URL = "https://api.arash.vip";
+//const BASE_URL = "http://localhost:4000";
+ const BASE_URL = "https://api.arash.vip";
 
 type METHOD = "GET" | "POST" | "DELETE" | "PUT" | "PATCH";
 

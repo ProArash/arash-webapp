@@ -43,7 +43,7 @@ const CheckoutContainer = ({ data }: { data: IPlanResponse }) => {
 	};
 	const checkDiscount = (discountBody: IApplyDiscountRequest) => {
 		discountBody.planId = +data.id;
-		discountMutate(discountBody, {
+		discountMutate(String(discountBody), {
 			onSuccess: (res) => {
 				setDiscountId(res.data.discountId);
 			},
