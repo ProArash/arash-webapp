@@ -2,7 +2,6 @@ import type { Metadata } from "next";
 import "./globals.css";
 import CustomAppProvider from "../components/Providers/CustomAppProvider";
 import "swiper/css";
-import Script from "next/script";
 
 export const metadata: Metadata = {
 	title: "کمانگیر | طراحی وب اپلیکیشن",
@@ -60,12 +59,6 @@ export default async function RootLayout({
 		<html dir="rtl" lang="fa">
 			<body>
 				<CustomAppProvider>{children}</CustomAppProvider>
-				<Script
-					defer
-					src="https://static.cloudflareinsights.com/beacon.min.js"
-					data-cf-beacon='{"token": "aa1204fa2672458d8fa38f4c1ba848f5"}'
-					strategy="afterInteractive"
-				/>
 			</body>
 		</html>
 	);
