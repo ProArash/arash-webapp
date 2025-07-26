@@ -11,7 +11,7 @@ import { useCurrentProfile } from "../../../api/auth/auth.mutation";
 import { SubmitHandler, useForm } from "react-hook-form";
 import { IProfileRequest, UserRole } from "../../../api/auth/auth.dto";
 import { useEffect, useState } from "react";
-import EditProfileSkeleton from "../../../components/Dashboard/EditProfile/EditProfileSkeleton";
+import EditProfileSkeleton from "./_components/EditProfileSkeleton";
 import z, { ZodError } from "zod";
 import { IErrorObject } from "../../../utils/IErrorObject";
 import { useEditCurrentProfile } from "../../../api/user/user.mutation";

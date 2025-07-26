@@ -1,6 +1,6 @@
 import { Box, Icon, Paper, Typography } from "@mui/material";
 import { BsInfoCircleFill } from "react-icons/bs";
-import TosSection from "../../../components/Tos/TosSection";
+import TosSection from "./_components/TosSection";
 
 const TosPage = () => {
 	return (

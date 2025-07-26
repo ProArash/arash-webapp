@@ -1,7 +1,7 @@
 import { Box, Paper } from "@mui/material";
-import DashboardSidebar from "../../components/Dashboard/DashboardSidebar";
 import { ReactNode } from "react";
-import DashboardNavbar from "../../components/Dashboard/DashboardNavbar";
+import DashboardSidebar from "./_components/DashboardSidebar";
+import DashboardNavbar from "./_components/DashboardNavbar";
 
 const ProfileLayout = ({ children }: { children: ReactNode }) => {
 	return (

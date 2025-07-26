@@ -1,13 +1,13 @@
 "use client";
 import { useMediaQuery } from "@mui/material";
 import { customTheme } from "../../../components/Theme/theme";
-import MyOrdersTableMobile from "../../../components/Dashboard/Orders/MyOrdersTableMobile";
-import MyOrdersTable from "../../../components/Dashboard/Orders/MyOrdersTable";
+import MyOrdersTableMobile from "./_components/MyOrdersTableMobile";
+import MyOrdersTable from "./_components/MyOrdersTable";
 import { useEffect } from "react";
 import { useMyOrders } from "../../../api/order/order.mutation";
-import TableMobileSkeleton from "../../../components/Dashboard/TableMobileSkeleton";
-import TableSkeleton from "../../../components/Dashboard/TableSkeleton";
 import { useDashboard } from "../../../components/Providers/DashboardProvider";
+import TableMobileSkeleton from "../_components/TableMobileSkeleton";
+import TableSkeleton from "../_components/TableSkeleton";
 
 const MyOrdersPage = () => {
 	const isMobile = useMediaQuery(customTheme.breakpoints.down("md"));

@@ -1,9 +1,9 @@
 "use client";
 import { useSearchParams } from "next/navigation";
-import PlanContainer from "../../../components/Plan/PlanContainer";
+import PlanContainer from "./_components/PlanContainer";
 import { useEffect } from "react";
 import { useGetPlanById } from "../../../api/plan/plan.mutation";
-import PlanErrorPage from "../../../components/Plan/PlanErrorPage";
+import PlanErrorPage from "./_components/PlanErrorPage";
 import LoadingPage from "../../loading";
 
 const PlanPage = () => {
@@ -21,13 +21,16 @@ const PlanPage = () => {
 		mutate(id);
 	}, [mutate, id]);
 	return (
-		<div className="p-5">
-			{planIsError && (
-				<PlanErrorPage message={planError.response.data.message} />
-			)}
-			{planIsPending && <LoadingPage />}
-			{planIsSuccess && <PlanContainer data={planData.data} />}
-		</div>
+		<>
+			<title>{"plans title"}</title>
+			<div className="p-5">
+				{planIsError && (
+					<PlanErrorPage message={planError.response.data.message} />
+				)}
+				{planIsPending && <LoadingPage />}
+				{planIsSuccess && <PlanContainer data={planData.data} />}
+			</div>
+		</>
 	);
 };
 

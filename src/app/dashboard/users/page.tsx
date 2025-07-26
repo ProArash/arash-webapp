@@ -4,10 +4,10 @@ import { useMediaQuery } from "@mui/material";
 import { useDashboard } from "../../../components/Providers/DashboardProvider";
 import { customTheme } from "../../../components/Theme/theme";
 import { useEffect } from "react";
-import TableMobileSkeleton from "../../../components/Dashboard/TableMobileSkeleton";
-import TableSkeleton from "../../../components/Dashboard/TableSkeleton";
-import UsersTable from "../../../components/Dashboard/Users/UsersTable";
-import UsersTableMobile from "../../../components/Dashboard/Users/UserTableMobile";
+import TableMobileSkeleton from "../_components/TableMobileSkeleton";
+import TableSkeleton from "../_components/TableSkeleton";
+import UsersTableMobile from "./_components/UserTableMobile";
+import UsersTable from "./_components/UsersTable";
 
 const UsersPage = () => {
 	const isMobile = useMediaQuery(customTheme.breakpoints.down("md"));

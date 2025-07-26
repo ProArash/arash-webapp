@@ -1,7 +1,7 @@
 import { ReactNode } from "react";
 import MainAppbar from "../../components/Appbar/MainAppbar";
-import CopyrightContainer from "../../components/Home/CopyrightContainer";
-import FooterContainer from "../../components/Home/FooterContainer";
+import CopyrightContainer from "./_components/CopyrightContainer";
+import FooterContainer from "./_components/FooterContainer";
 
 const HomeLayout = ({ children }: { children: ReactNode }) => {
 	return (

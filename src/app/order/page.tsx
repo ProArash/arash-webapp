@@ -1,6 +1,6 @@
 "use client";
 import { useSearchParams } from "next/navigation";
-import OrderContainer from "../../components/Order/OrderContainer";
+import OrderContainer from "./_components/OrderContainer";
 
 const OrderPage = () => {
 	const orderId = useSearchParams().get("id") || "";

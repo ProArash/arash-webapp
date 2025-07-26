@@ -3,10 +3,10 @@ import improveImage from "@/assets/home/improvement.png";
 import lowPriceImage from "@/assets/home/low_price.png";
 import suitableImage from "@/assets/home/suitable.png";
 import GoTopButton from "../../components/GoTopButton";
-import FeaturesContainer from "../../components/Home/FeaturesContainer";
-import HeaderContainer from "../../components/Home/HeaderContainer";
-import MainContainer from "../../components/Home/MainContainer";
-import PlanContainer from "../../components/Home/PlanContainer";
+import FeaturesContainer from "./_components/FeaturesContainer";
+import HeaderContainer from "./_components/HeaderContainer";
+import MainContainer from "./_components/MainContainer";
+import PlanContainer from "./_components/PlanContainer";
 import {
 	BsArrowRightCircle,
 	BsCash,

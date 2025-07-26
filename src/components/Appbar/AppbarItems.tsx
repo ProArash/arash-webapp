@@ -5,7 +5,7 @@ import { AppRoutes } from "../../utils/AppRoutes";
 import AppbarItem from "./AppbarItem";
 import { customTheme } from "../Theme/theme";
 import LogoContainer from "./LogoContainer";
-import { BsBook, BsHouse, BsTelephone } from "react-icons/bs";
+import { BsBook, BsCode, BsHouse, BsTelephone } from "react-icons/bs";
 
 const AppbarItems = () => {
 	const isMobile = useMediaQuery(customTheme.breakpoints.down("md"));
@@ -20,6 +20,7 @@ const AppbarItems = () => {
 				)}
 
 				<AppbarItem title="خانه" url={AppRoutes.home} icon={<BsHouse />} />
+				<AppbarItem title="دوره ها" url={AppRoutes.courses} icon={<BsCode />} />
 
 				<AppbarItem title="قوانین" url={AppRoutes.tos} icon={<BsBook />} />
 

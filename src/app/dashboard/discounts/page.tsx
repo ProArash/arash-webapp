@@ -3,10 +3,10 @@ import { useMediaQuery } from "@mui/material";
 import { customTheme } from "../../../components/Theme/theme";
 import { useEffect } from "react";
 import { useGetAllDiscounts } from "../../../api/discount/discount.mutation";
-import DiscountTableMobile from "../../../components/Dashboard/Discount/DiscountsTableMobile";
-import DiscountsTable from "../../../components/Dashboard/Discount/DiscountsTable";
-import TableMobileSkeleton from "../../../components/Dashboard/TableMobileSkeleton";
-import TableSkeleton from "../../../components/Dashboard/TableSkeleton";
+import TableMobileSkeleton from "../_components/TableMobileSkeleton";
+import TableSkeleton from "../_components/TableSkeleton";
+import DiscountTableMobile from "./_components/DiscountsTableMobile";
+import DiscountsTable from "./_components/DiscountsTable";
 
 const DiscountsPage = () => {
 	const isMobile = useMediaQuery(customTheme.breakpoints.down("md"));

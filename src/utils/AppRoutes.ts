@@ -1,5 +1,7 @@
 export const AppRoutes = {
 	home: "/home",
+	courses: "/courses",
+	request: "/request",
 	tos: "/home/tos",
 	cv: "/home/cv",
 	auth: "/auth",
